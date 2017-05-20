@@ -1,5 +1,5 @@
 import java.util.*;
-public class codechef
+class codechef
 {
 
 	public static String check(int a[],int n)
