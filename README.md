@@ -1,6 +1,6 @@
 # Competitive-Coding
 ## Websites include:
-Hackerrank</br>
-HackerEarth</br>
-CodeChef</br>
-GFG</br>
+* Hackerrank
+* HackerEarth
+* CodeChef
+* GFG
