@@ -34,6 +34,7 @@ class food {
         }
             else
             {
+                pos=0;
                 for(i=n-1;i>=0;i--)
                     if(a[i].compareTo(BigInteger.valueOf(0))<=0)
                     {
@@ -55,6 +56,7 @@ class food {
                     else
                         pos=i;
                 }
+                if(pos!=0)
                 for(i=pos;i>=0;i--)
                 {
                     val=val.add(a[i]);
