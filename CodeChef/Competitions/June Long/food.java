@@ -21,27 +21,48 @@ class food {
             for (i=0;i<n;i++)
                 a[i]=sc.nextBigInteger();
             Arrays.sort(a);
-            for(i=0;i<n;i++)
+            //System.out.println(Arrays.toString(a));
+            if(a[n-1].compareTo(BigInteger.valueOf(0))<=0)
             {
-                if(a[i].compareTo(BigInteger.ZERO)<=0)
+                for(i=0;i<n;i++)
+            {
+                if(a[i].compareTo(BigInteger.valueOf(0))<=0)
                 {
                     val=val.add(a[i]);
                 }
-                else
-                {
-                    pos=i;
-                    for(i=pos;i<n;i++)
-                     {
-                        sum=sum.add(a[i]);
-                        }
-                        //BigInteger b= new BigInteger(n-pos);
-                    val=val.add((sum.multiply(BigInteger.valueOf(n-pos))));
-                    break;
-                }
             }
-            
+        }
+            else
+            {
+                for(i=n-1;i>=0;i--)
+                    if(a[i].compareTo(BigInteger.valueOf(0))<=0)
+                    {
+                        pos=i;
+                        break;
+                    }
+                BigInteger temp=BigInteger.ZERO;
+                for(i=n-1;i>pos;i--)
+                {
+                    sum=sum.add(a[i]);
+                }
+                val=val.add((sum.multiply(BigInteger.valueOf(n-1-pos))));
+                for(i=pos;i>=0;i--)
+                {
+                    sum=sum.add(a[i]);
+                    temp=sum.multiply(BigInteger.valueOf(n-i));
+                    if(temp.compareTo(val)>=0)
+                        val=temp;
+                    else
+                        pos=i;
+                }
+                for(i=pos;i>=0;i--)
+                {
+                    val=val.add(a[i]);
+                }
+
+            }
+
             System.out.println(val);
-            //System.out.println(Arrays.toString(a));
             count++;
         }while(count<t);
     }
