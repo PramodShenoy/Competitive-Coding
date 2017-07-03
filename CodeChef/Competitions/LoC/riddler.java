@@ -6,8 +6,8 @@ class riddler
 		
 		Scanner sc = new Scanner(System.in);
 		int t;
-		int a,b;
-		int m;
+		int  a,b;
+		int  m;
 		int count=0;
 		int c=0;
 		t=sc.nextInt();
@@ -17,21 +17,15 @@ class riddler
 			b=sc.nextInt();
 			m=sc.nextInt();
 			//recalculating limits
-			if(a>m && a%m!=0)
+			//a=2 b=6 m=2
+			c =(int) Math.floor((b-a+1)/m);
+			int k = (b-a+1) % m;//k = 1
+			for(int i=a;i<=(k+a-1);i++)
 			{
-				int res = Math.round(a/m);
-				a = (res) * m;
+				if(i%m==0)
+					c++;
 			}
-			else if(a<=m)
-				a=m;
-			if(b%m!=0)
-			{
-				int res2 = Math.round(b/m);
-				b = (res2) * m;
-			}
-			c=(b-a)/m;
-			System.out.println(c+1);
-			c=0;
+			System.out.println(c);
 			count++;
 		}while(count<t);
 	}
