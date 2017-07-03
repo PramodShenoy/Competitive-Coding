@@ -16,12 +16,21 @@ class riddler
 			a=sc.nextInt();
 			b=sc.nextInt();
 			m=sc.nextInt();
-			for(int i=a;i<=b;i++)
+			//recalculating limits
+			if(a>m && a%m!=0)
 			{
-				if(i%m==0)
-					c++;
+				int res = Math.round(a/m);
+				a = (res) * m;
 			}
-			System.out.println(c);
+			else if(a<=m)
+				a=m;
+			if(b%m!=0)
+			{
+				int res2 = Math.round(b/m);
+				b = (res2) * m;
+			}
+			c=(b-a)/m;
+			System.out.println(c+1);
 			c=0;
 			count++;
 		}while(count<t);
