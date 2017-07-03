@@ -18,11 +18,14 @@ int main(int argc, char const *argv[])
 		}
 		sort(arr, arr+n);
 		int res = -1;
+		int sum=0;
 		for(int i=0;i<n;i++)
 		{
-			if((arr[i]*(n-i))==s)
+			sum+=arr[i];
+			int temp = sum+(arr[i]*(n-i-1));
+			if(temp==s)
 			{
-				res = arr[i];
+				res=arr[i];
 				break;
 			}
 		}
