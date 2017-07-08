@@ -1,19 +1,19 @@
-import java.util.*;
-import java.io.*;
+import java.util.Scanner;
 
 class nitika
 {
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) 
 	{
 
-		Scanner sc =new Scanner(System.in);
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		Scanner sc =new Scanner(System.in);		
 		int t = sc.nextInt();
+		sc.nextLine();
 		int count=0;
 		do
 		{
-			String str = br.readLine();
+			String str ;
+			str = sc.nextLine();
+			str.trim();
 			//String str = "sdfsd dfsdf dsakl wqwqerwef";
 			//System.out.println(str);
 			str = str.toLowerCase();
