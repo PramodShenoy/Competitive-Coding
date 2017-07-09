@@ -27,16 +27,26 @@ public class tour
         	{ 
         		//i=1
         		curr_p=curr_p+p[i]-d[i];
-        		if(((curr_p+p[(i+1)%n])>=d[(i+1)%n])||((curr_p+p[(i+1)%n])>=d[(i+1)%n]))
+        		if((curr_p+p[(i+1)%n])>=d[(i+1)%n])
         			{
         				i++;
         				flag++;
         				if(i>=n)
-        					i=i%n;
+        					i=0;
         				if(i==start)
         					break;
         			}
-        		else 
+        		else if((curr_p+p[(n-i-1)%n])>=d[(n-i-1)%n])
+        		{
+        			i--;
+        			flag++;
+        			if(i<=0)
+        				i=n-1;
+        			if(i==start)
+        				break;
+
+        		}
+        		else
         			break;
         	}
         	if(flag==n)
