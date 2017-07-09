@@ -1,20 +1,28 @@
+def subset_sum(numbers, target, partial=[], partial_sum=0):
+    if partial_sum == target:
+        yield partial
+    if partial_sum >= target:
+        return
+    for i, n in enumerate(numbers):
+        remaining = numbers[i + 1:]
+        yield from subset_sum(remaining, target, partial + [n], partial_sum + n)
 
 cards = list(map(int, input().split(' ')))
 cards.sort()
 score = 0
+score +=len(list(subset_sum(cards,15)))
 
-from itertools import groupby
-p = [len(list(group)) for key, group in groupby(cards)]
+from collections import Counter
 
-for item in p:
-	if item>1:
-		score+=item
+a = dict(Counter(cards))
+import math
 
-s = 0
-for i in range(len(cards)):
-	s = s+cards[i]
-	if s == 15:
-		score=score+1
-		s = s - cards[i]
+def nCr(n,r):
+    f = math.factorial
+    return f(n) / f(r) / f(n-r)
 
-print(score)
+for i, j in a.items():
+    if j>1:
+    	score+=nCr(j,2)
+        
+print(int(score))
