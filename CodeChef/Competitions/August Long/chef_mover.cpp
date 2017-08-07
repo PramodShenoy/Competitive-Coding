@@ -48,9 +48,9 @@ int main(int argc, char const *argv[])
 				break;
 			}
 		}
-		if(flag==1 && count==0)
+		if(flag==1)
 			cout<<-1<<endl;
-		else if(flag==0 && count>0)
+		else if(flag==0 && count>=0)
 			cout<<count<<endl;
 
 	}
