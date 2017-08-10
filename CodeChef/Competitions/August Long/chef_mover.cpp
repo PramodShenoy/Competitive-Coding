@@ -8,15 +8,14 @@ int main(int argc, char const *argv[])
 	cin>>t;
 	for(int test=0;test<t;test++)
 	{
-		int n,d,i;
-		int count=0;
-		int val;
+		long long n,d,i;
+		long long count=0;
+		long long val;
 		cin>>n;
 		cin>>d;
-		int arr[n];
-		int sum=0;
-		int max=-1;
-		int pos=0;
+		long long arr[n];
+		long long sum=0;
+		long long pos=0;
 		for ( i = 0; i < n; ++i)
 		{
 			cin>>arr[i];
@@ -29,15 +28,26 @@ int main(int argc, char const *argv[])
 			val = sum/n;
 			for(i=0;i<n-d;i++)
 			{
-				if(arr[i]!=val)
+				if(arr[i]!=val && i+d<n)
 				{
 					count = count + abs(arr[i]-val);
-					int c = arr[i]-val;
+					long long t = arr[i] - val;
 					arr[i] = val;
-					arr[i+d] = arr[i+d] + c;
+					arr[i+d] = arr[i+d] + t;
 				}
 			}
-			cout<<count<<endl;
+			int flag = 0;
+			for(i=0;i<n;i++)
+			{
+				if(arr[i]!=val)
+				{
+					flag =1 ;
+					cout<<-1<<endl;
+					break;
+				}
+			}
+			if(flag==0)
+				cout<<count<<endl;
 		}
 		
 	}
